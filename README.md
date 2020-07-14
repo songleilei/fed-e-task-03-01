@@ -30,6 +30,8 @@ let vm = new Vue({
 
 > 由于 Vue 不允许动态添加根级响应式 property，所以你必须在初始化实例前声明所有根级响应式 property，哪怕只是一个空值
 
+原理：初始化的时候通过 **Object.defineProperty()** 给对象属性设置监听（Vue 2.x）。如果不声明 property，将不会有监听。
+
 ```javascript
 let vm = new Vue({
     el: '#el'
@@ -48,6 +50,8 @@ let vm = new Vue({
 ```
 
 2. 通过 **Vue.set(object, propertyName, value)** 方法向嵌套对象添加响应式 , 还可以使用 **vm.\$set** 实例方法，这也是全局 Vue.set 方法的别名
+
+原理：通过 **vm.\$set** 设置值，内部调用 **defineReactive()** 监听对象，实则还是 **Object.defineProperty()** （Vue 2.x）
 
 ```javascript
  let vm = new Vue({

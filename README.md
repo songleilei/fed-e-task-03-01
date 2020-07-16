@@ -111,3 +111,9 @@ htmlUpdater(node, value, key) {
 ```
 
 #### 3、参考 Snabbdom 提供的电影列表的示例，利用 Snabbdom 实现类似的效果，如图：
+
+```bash
+# san-demo
+
+npm run dev
+```

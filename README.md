@@ -100,4 +100,14 @@ vue-hash-demo -> vue-router -> index.js
 
 #### 2、在模拟 Vue.js 响应式源码的基础上实现 v-html 指令，以及 v-on 指令。
 
+```javascript
+// v-html
+htmlUpdater(node, value, key) {
+  node.innerHTML = value;
+  new Watcher(this.vm, key, (newValue) => {
+    node.innerHTML = newValue;
+  });
+}
+```
+
 #### 3、参考 Snabbdom 提供的电影列表的示例，利用 Snabbdom 实现类似的效果，如图：
